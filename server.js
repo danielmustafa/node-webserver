@@ -22,10 +22,6 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use((req,res,next) => {
-    res.render('maintenance.hbs');
-})
-
 hbs.registerHelper('getCurrentYear', () => {return new Date().getFullYear()})
 
 hbs.registerHelper('screamIt', (text) => {
@@ -55,6 +51,10 @@ app.get('/bad', (req,res) => {
             "description": "bad input data"
         }
     })
+})
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs')
 })
 
 app.listen(port, () => {
